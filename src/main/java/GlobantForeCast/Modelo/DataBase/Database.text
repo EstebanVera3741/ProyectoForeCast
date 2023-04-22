@@ -1,0 +1,30 @@
+CREATE DATABASE estudiantePatrocinado;
+USE estudiantePatrocinado;
+
+CREATE TABLE ciudad (
+	nombreciudad VARCHAR (25) PRIMARY KEY NOT NULL
+);
+
+CREATE TABLE generacion (
+	nombregeneracion VARCHAR (25) NOT NULL PRIMARY KEY,
+    nombre_ciudad VARCHAR (25) NOT NULL,
+    fechail DATE NOT NULL,
+    fechafp DATE NOT NULL,
+    FOREIGN KEY (nombre_ciudad) REFERENCES ciudad(nombreciudad)
+);
+
+CREATE TABLE institucion (
+	nombreinstitucion VARCHAR (50) NOT NULL PRIMARY KEY,
+    nombre_ciudad VARCHAR (25) NOT NULL,
+    FOREIGN KEY (nombre_ciudad) REFERENCES ciudad(nombreciudad)
+);
+
+CREATE TABLE estudiante(
+	nombrecompleto VARCHAR(50) NOT NULL,
+    numeroidentificacion VARCHAR (25) PRIMARY KEY NOT NULL,
+    correoelectronico VARCHAR (40) NOT NULL,
+    nombre_generacion VARCHAR (25) NOT NULL,
+    nombre_institucion VARCHAR (50) NOT NULL,
+    FOREIGN KEY (nombre_generacion) REFERENCES generacion(nombregeneracion),
+    FOREIGN KEY (nombre_institucion) REFERENCES institucion(nombreinstitucion)
+);

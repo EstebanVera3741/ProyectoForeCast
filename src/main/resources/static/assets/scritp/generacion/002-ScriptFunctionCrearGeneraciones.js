@@ -3,6 +3,7 @@ fetch('/consultarGeneraciones')
     .then(data => {
 
         var contenedorDiv = document.getElementById("script_crear_generacion");
+        var cont = 0;
 
         data.forEach(function (datos){
 
@@ -11,6 +12,7 @@ fetch('/consultarGeneraciones')
 
             var primerH2 = document.createElement("h2");
             primerH2.classList.add("fw-normal");
+            primerH2.setAttribute("id", "value_generacion_" + cont);
             primerH2.innerText = datos.nombreGeneracion;
 
             var primerP = document.createElement("p");
@@ -20,8 +22,10 @@ fetch('/consultarGeneraciones')
             var primerA = document.createElement("a");
             primerA.classList.add("btn", "btn-secondary", "rounded-pill");
             primerA.setAttribute("href", "#");
-            primerA.innerText = "Visualizar Generacion"
+            primerA.addEventListener("click", crearTabla);
+            primerA.innerText = "Generar Tabla"
 
+            cont ++;
 
             segundoP.appendChild(primerA);
             primerDiv.appendChild(primerH2)
