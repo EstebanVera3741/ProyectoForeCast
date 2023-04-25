@@ -1,10 +1,12 @@
 package GlobantForeCast.Controlador;
 
 import GlobantForeCast.Modelo.Entity.Estudiante;
+import GlobantForeCast.Modelo.Entity.Generacion;
 import GlobantForeCast.Query.CRUD.Crear.InsertarEstudiante;
 import GlobantForeCast.Query.CRUD.Eliminar.EliminarEstudiante;
 import GlobantForeCast.Query.CRUD.Modificar.ModificarEstudiante;
 import GlobantForeCast.Query.CRUD.Visualizar.VisualizarEstudiante;
+import GlobantForeCast.Query.CRUD.Visualizar.VisualizarGeneracion;
 import jakarta.servlet.http.HttpServlet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,6 +25,8 @@ public class ControladorEstudiante extends HttpServlet {
     private ModificarEstudiante modificarEstudiante;
     @Autowired
     private VisualizarEstudiante visualizarEstudiante;
+    @Autowired
+    private VisualizarGeneracion visualizarGeneracion;
 
     @PostMapping("/crearEstudiante")
     public ResponseEntity<?> crearEstudiante(@RequestBody Estudiante estudiante) {
@@ -59,7 +63,8 @@ public class ControladorEstudiante extends HttpServlet {
 
     @GetMapping("/consultarEstudiantesPorGeneracion/{nombreGeneracion}")
     public ResponseEntity<?> consultarEstudiantesPorGeneracion (@PathVariable String nombreGeneracion){
-        List<Estudiante> listaEstudiantes = visualizarEstudiante.consultarEstudiantesPorGeneracion(nombreGeneracion);
+        Generacion generacion = visualizarGeneracion.consultarGeneracionPorNombre(nombreGeneracion);
+        List<Estudiante> listaEstudiantes = visualizarEstudiante.consultarEstudiantesPorGeneracion(generacion);
 
         return ResponseEntity.ok(listaEstudiantes);
     }

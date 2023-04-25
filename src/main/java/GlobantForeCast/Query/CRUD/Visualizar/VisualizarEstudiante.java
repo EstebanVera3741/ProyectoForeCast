@@ -1,6 +1,7 @@
 package GlobantForeCast.Query.CRUD.Visualizar;
 
 import GlobantForeCast.Modelo.Entity.Estudiante;
+import GlobantForeCast.Modelo.Entity.Generacion;
 import GlobantForeCast.Modelo.Repositorio.EstudianteRepository;
 import GlobantForeCast.Query.Service.VisualizarService.VisualizarEstudiantesService;
 import jakarta.persistence.EntityManager;
@@ -31,7 +32,7 @@ public class VisualizarEstudiante implements VisualizarEstudiantesService {
     }
 
     @Override
-    public List<Estudiante> consultarEstudiantesPorGeneracion(String nombreGeneracion) {
+    public List<Estudiante> consultarEstudiantesPorGeneracion(Generacion nombreGeneracion) {
         TypedQuery<Estudiante> query = entityManager.createQuery(
                 "SELECT e FROM Estudiante e WHERE e.nombre_Generacion = :nombreGeneracion",
                 Estudiante.class);

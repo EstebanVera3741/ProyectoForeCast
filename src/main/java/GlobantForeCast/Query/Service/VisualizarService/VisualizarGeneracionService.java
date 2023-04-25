@@ -7,4 +7,5 @@ import java.util.List;
 public interface VisualizarGeneracionService {
 
     public List<Generacion> consultarGeneraciones();
+    public Generacion consultarGeneracionPorNombre(String nombreGeneracion);
 }

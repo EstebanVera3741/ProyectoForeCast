@@ -19,7 +19,7 @@ fetch('/consultarGeneraciones')
             var segundoP = document.createElement("p");
             var primerA = document.createElement("a");
             primerA.classList.add("btn", "btn-secondary", "rounded-pill");
-            primerA.setAttribute("href", "#");
+            primerA.setAttribute("href", "generacion.html");
             primerA.innerText = "Visualizar Generacion"
 
 

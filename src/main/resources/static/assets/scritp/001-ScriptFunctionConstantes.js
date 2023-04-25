@@ -15,4 +15,3 @@ actualizarContenido("link_globers", GLOBERS);
 actualizarContenido("link_generacion", GENERACIONES);
 actualizarContenido("link_colaboradores", COLABORADOR);
 actualizarContenido("link_tablas", TABLAS);
-actualizarContenido("link_generacion_titulo", GENERACIONES);
