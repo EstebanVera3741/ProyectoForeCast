@@ -22,7 +22,7 @@ fetch('/consultarGeneraciones')
             var primerA = document.createElement("a");
             primerA.classList.add("btn", "btn-secondary", "rounded-pill");
             primerA.setAttribute("id", "link_prueba")
-            primerA.setAttribute("href", "#");
+            primerA.setAttribute("href", "#section_crear_tabla");
             primerA.addEventListener("click", crearTabla);
             primerA.innerText = "Generar Tabla"
 
