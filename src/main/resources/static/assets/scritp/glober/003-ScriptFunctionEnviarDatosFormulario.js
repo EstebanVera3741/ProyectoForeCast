@@ -32,26 +32,33 @@ formulario.addEventListener('submit', function(event) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(ciudad)
         });
-
-        const responseGeneracion = fetch(urlRestController.generacion, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(generacion)
-        });
-
-        const responseInstitucion = fetch(urlRestController.institucion, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(institucion)
-        });
-
-        const responseEstudiante = fetch(urlRestController.estudiante, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(estudiante)
-        });
-
-        console.log(responseCiudad, responseGeneracion, responseInstitucion,responseEstudiante);
+        responseCiudad.then(response =>{
+            if(response.status == 201){
+                const responseGeneracion = fetch(urlRestController.generacion, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(generacion)
+                });
+                responseGeneracion.then(response => {
+                    if (response.status == 201){
+                        const responseInstitucion = fetch(urlRestController.institucion, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(institucion)
+                        });
+                        responseInstitucion.then(response => {
+                            if (response.status == 201){
+                                const responseEstudiante = fetch(urlRestController.estudiante, {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/json' },
+                                    body: JSON.stringify(estudiante)
+                                });
+                            }
+                        })
+                    }
+                })
+            }
+        })
     }
     catch (error) {
         console.error(error);
