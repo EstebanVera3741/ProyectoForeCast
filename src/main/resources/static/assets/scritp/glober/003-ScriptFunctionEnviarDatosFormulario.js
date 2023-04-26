@@ -1,4 +1,6 @@
-async function dataCollection() {
+const formulario = document.getElementById('link_formulario_envar_datos');
+formulario.addEventListener('submit', function(event) {
+    event.preventDefault();
 
     const urlRestController = {
         ciudad: '/crearCiudad',
@@ -7,14 +9,14 @@ async function dataCollection() {
         estudiante: '/crearEstudiante'
     };
 
-    const {value: nombreCompleto} = document.getElementById("input_nombre_completo");
-    const {value: numeroIdentificacion} = document.getElementById("input_identificacion");
-    const {value: nombreGeneracion} = document.getElementById("input_generacion");
-    const {value: correoElectronico} = document.getElementById("input_correo");
-    const {value: nombreInstitucion} = document.getElementById("input_education");
-    const {value: nombreCiudad} = document.getElementById("input_ciudad");
-    const {value: fechaIL} = document.getElementById("input_fecha_il");
-    const {value: fechaFP} = document.getElementById("input_fecha_fp");
+    const {value: nombreCompleto} = document.forms["link_formulario_envar_datos"]["input_nombre_completo"];
+    const {value: numeroIdentificacion} = document.forms["link_formulario_envar_datos"]["input_identificacion"];
+    const {value: nombreGeneracion} = document.forms["link_formulario_envar_datos"]["input_generacion"];
+    const {value: correoElectronico} = document.forms["link_formulario_envar_datos"]["input_correo"];
+    const {value: nombreInstitucion} = document.forms["link_formulario_envar_datos"]["input_education"];
+    const {value: nombreCiudad} = document.forms["link_formulario_envar_datos"]["input_ciudad"];
+    const {value: fechaIL} = document.forms["link_formulario_envar_datos"]["input_fecha_il"];
+    const {value: fechaFP} = document.forms["link_formulario_envar_datos"]["input_fecha_fp"];
 
     const ciudad = { nombreCiudad: nombreCiudad };
     const generacion = { nombreGeneracion: nombreGeneracion, fechaIL: fechaIL, fechaFP: fechaFP,
@@ -24,29 +26,26 @@ async function dataCollection() {
         correoElectronico: correoElectronico,
         nombre_Generacion: generacion, nombre_Institucion: institucion };
 
-    console.log(estudiante)
-
-
     try {
-        const responseCiudad = await fetch(urlRestController.ciudad, {
+        const responseCiudad = fetch(urlRestController.ciudad, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(ciudad)
         });
 
-        const responseGeneracion = await fetch(urlRestController.generacion, {
+        const responseGeneracion = fetch(urlRestController.generacion, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(generacion)
         });
 
-        const responseInstitucion = await fetch(urlRestController.institucion, {
+        const responseInstitucion = fetch(urlRestController.institucion, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(institucion)
         });
 
-        const responseEstudiante = await fetch(urlRestController.estudiante, {
+        const responseEstudiante = fetch(urlRestController.estudiante, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(estudiante)
@@ -57,4 +56,6 @@ async function dataCollection() {
     catch (error) {
         console.error(error);
     }
-}
+
+    formulario.reset();
+});

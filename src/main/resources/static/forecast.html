@@ -8,62 +8,57 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" aria-label="Tenth navbar example">
-    <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand mx-5" href="https://www.globant.com/" target="_blank">
-            <img src="assets/imagen/001-GlobantLogoBlanco.png" width="180px">
-        </a>
-        <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" id="link_inicio" href="#link_inicio_section"></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="link_forecast" href="forecast.html"></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="link_globers" href="#link_glober_section"></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " id="link_generacion" href="#link_generacion_section"></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " id="link_colaboradores" href="#"></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " data-bs-toggle="modal" data-bs-target="#exampleModal" id="" href="#">Login</a>
-                </li>
-            </ul>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" aria-label="Tenth navbar example">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand mx-5" href="https://www.globant.com/" target="_blank">
+                <img src="assets/imagen/001-GlobantLogoBlanco.png" width="180px">
+            </a>
+            <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" id="link_inicio" href="http://localhost:8080"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="link_forecast" href="#"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="link_globers" href="glober.html"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " id="link_generacion" href="generacion.html"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " id="link_colaboradores" href="#"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " id="link_tablas" href="#"></a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+    <section>
+        <div class="px-4 py-5 my-5 text-center">
+            <h1 class="display-5 fw-bold text-body-emphasis">Forecast</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">El Tecnologo de analisis y desarrollo de software tiene como objetivo principal
+                        contribuir al desarrollo social y económico del país mediante la formación y capacitación de
+                        personas en diferentes áreas del desarrollo web. Entre sus actividades, se encuentra la realización
+                        de pronósticos o forecast sobre distintos aspectos, como por ejemplo, el mercado laboral y las
+                        tendencias de crecimiento exponencial laborar. Estos forecast pueden ser de gran utilidad para
+                        las personas y empresas que buscan planificar su futuro y tomar decisiones informadas.</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <button type="button" class="btn btn-light btn-lg px-4 gap-3">Generar Forecast Laboral</button>
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">Generar Forecast Patrocinios</button>
                 </div>
             </div>
         </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-
+    </section>
 
 </body>
 </html>
