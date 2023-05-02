@@ -4,5 +4,5 @@ import GlobantForeCast.Modelo.Entity.Trabajador;
 
 public interface InsertarTrabajadorService {
 
-    public Trabajador crearTrabajador(Trabajador trabajador);
+    public void crearTrabajador(Trabajador trabajador);
 }

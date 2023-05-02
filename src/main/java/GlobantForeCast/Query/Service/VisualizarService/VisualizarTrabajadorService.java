@@ -8,4 +8,5 @@ public interface VisualizarTrabajadorService {
     public List<Trabajador> consultarTrabajadores();
     public Trabajador consultarTrabajador (String identificacion);
     public Long contarTrabajadores ();
+    public List<Trabajador> cantidadTrabajadoresPorMes (int numeroMes);
 }

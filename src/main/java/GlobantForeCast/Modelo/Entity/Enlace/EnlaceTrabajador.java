@@ -4,22 +4,22 @@ import java.time.LocalDate;
 
 public class EnlaceTrabajador {
 
-    private Long numeroTrabajadores;
-    private LocalDate fechaFC;
+    private Integer numeroTrabajadores;
+    private LocalDate fechaIngreso;
 
-    public Long getNumeroTrabajadores() {
+    public Integer getNumeroTrabajadores() {
         return numeroTrabajadores;
     }
 
-    public void setNumeroTrabajadores(Long numeroTrabajadores) {
+    public void setNumeroTrabajadores(Integer numeroTrabajadores) {
         this.numeroTrabajadores = numeroTrabajadores;
     }
 
-    public LocalDate getFechaFC() {
-        return fechaFC;
+    public LocalDate getFechaIngreso() {
+        return fechaIngreso;
     }
 
-    public void setFechaFC(LocalDate fechaFC) {
-        this.fechaFC = fechaFC;
+    public void setFechaIngreso(LocalDate fechaIngreso) {
+        this.fechaIngreso = fechaIngreso;
     }
 }

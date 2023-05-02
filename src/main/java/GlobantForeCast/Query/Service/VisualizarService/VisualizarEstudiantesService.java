@@ -10,4 +10,5 @@ public interface VisualizarEstudiantesService {
     public List<Estudiante> consultarEstudiantes ();
     public Estudiante consultarEstudiante (String identificacion);
     public List<Estudiante> consultarEstudiantesPorGeneracion (Generacion nombreGeneracion);
+    public Long contarEstudiantes ();
 }

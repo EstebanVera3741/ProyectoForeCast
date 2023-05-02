@@ -39,4 +39,9 @@ public class VisualizarEstudiante implements VisualizarEstudiantesService {
         query.setParameter("nombreGeneracion", nombreGeneracion);
         return query.getResultList();
     }
+
+    @Override
+    public Long contarEstudiantes() {
+        return estudianteRepository.count();
+    }
 }

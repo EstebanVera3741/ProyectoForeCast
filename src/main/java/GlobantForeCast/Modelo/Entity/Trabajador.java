@@ -15,16 +15,16 @@ public class Trabajador {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "numeroidentificacion")
     private Integer numeroidentificacion;
-    @Column(name = "fechaFC")
+    @Column(name = "fechaingreso")
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate fechaContratacion;
+    private LocalDate fechaIngreso;
 
-    public LocalDate getFechaContratacion() {
-        return fechaContratacion;
+    public LocalDate getFechaIngreso() {
+        return fechaIngreso;
     }
 
-    public void setFechaContratacion(LocalDate fechaContratacion) {
-        this.fechaContratacion = fechaContratacion;
+    public void setFechaIngreso(LocalDate fechaContratacion) {
+        this.fechaIngreso = fechaContratacion;
     }
 
     public String getNombrecompleto() {

@@ -13,7 +13,7 @@ public class InsertarTrabajador implements InsertarTrabajadorService {
     private TrabajadorRepository trabajadorRepository;
 
     @Override
-    public Trabajador crearTrabajador(Trabajador trabajador) {
-        return trabajadorRepository.save(trabajador);
+    public void crearTrabajador(Trabajador trabajador) {
+        trabajadorRepository.save(trabajador);
     }
 }

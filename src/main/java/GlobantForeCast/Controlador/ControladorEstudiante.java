@@ -47,6 +47,13 @@ public class ControladorEstudiante extends HttpServlet {
         return ResponseEntity.status(HttpStatus.CREATED).body(estudianteCreado);
     }
 
+    @GetMapping("/consultarEstudiante")
+    public ResponseEntity<?> consultarEstudiante (@PathVariable String identificacion){
+        Estudiante estudiante =
+                this.visualizarEstudiante.consultarEstudiante(identificacion);
+        return ResponseEntity.ok(estudiante);
+    }
+
     @GetMapping("/consultarEstudiantes")
     public ResponseEntity<?> consultarEstudiantes (){
         List<Estudiante> listaDeEstudiantes =
@@ -54,11 +61,10 @@ public class ControladorEstudiante extends HttpServlet {
         return ResponseEntity.ok(listaDeEstudiantes);
     }
 
-    @GetMapping("/consultarEstudiante")
-    public ResponseEntity<?> consultarEstudiante (@PathVariable String identificacion){
-        Estudiante estudiante =
-                this.visualizarEstudiante.consultarEstudiante(identificacion);
-        return ResponseEntity.ok(estudiante);
+    @GetMapping("/cantidadEstudiantes")
+    public ResponseEntity<?> cantidadEstudiantes (){
+        Long cantidadEstudiantes = this.visualizarEstudiante.contarEstudiantes();
+        return ResponseEntity.ok(cantidadEstudiantes);
     }
 
     @GetMapping("/consultarEstudiantesPorGeneracion/{nombreGeneracion}")

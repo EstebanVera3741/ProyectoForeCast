@@ -1,0 +1,6 @@
+SELECT * FROM generacion;
+
+SELECT e.*
+FROM estudiante e
+INNER JOIN generacion g ON e.nombre_generacion = g.nombregeneracion
+WHERE g.nombregeneracion = 'GRAFITO';

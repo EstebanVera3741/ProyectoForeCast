@@ -1,18 +1,27 @@
+import {cantidadTrabajadores, cantidadPatrocinados, cantidadFaltante, cantidadParaPatrocinar}
+    from "./004-ScriptFunctionValores.js";
+import {drawChart}
+    from "./004-ScriptFunctionCrearCanva.js";
+
 const formulario = document.getElementById('link_formulario_trabajador');
+
 formulario.addEventListener('submit', function(event) {
     event.preventDefault();
+
+    ejecucionEvento();
+});
+
+function ejecucionEvento(){
 
     const URLtrabajador = "/crearTrabajador";
 
     const {value: numeroTrabajadores} = document.forms["link_formulario_trabajador"]["input_numero_trabajadores"];
-    const {value: fechaFC} = document.forms["link_formulario_trabajador"]["input_fecha_contratacion"];
+    const {value: fechaIngreso} = document.forms["link_formulario_trabajador"]["input_fecha_contratacion"];
 
     const registroTrabajador = { numeroTrabajadores: numeroTrabajadores,
-        fechaFC: fechaFC };
+        fechaIngreso: fechaIngreso };
 
     try {
-
-        console.log("Prueba---1: " + registroTrabajador.numeroTrabajadores);
 
         fetch(URLtrabajador, {
             method: 'POST',
@@ -24,4 +33,10 @@ formulario.addEventListener('submit', function(event) {
         console.error(error);
     }
     formulario.reset();
-});
+
+    cantidadTrabajadores();
+    cantidadPatrocinados();
+    cantidadFaltante();
+    cantidadParaPatrocinar();
+    drawChart();
+}
