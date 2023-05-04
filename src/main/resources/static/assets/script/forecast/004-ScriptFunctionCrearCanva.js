@@ -1,6 +1,6 @@
 
 
-export function drawChart() {
+function drawChart() {
     var labels = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'];
 
     const canvas = document.getElementById('myCanvas');

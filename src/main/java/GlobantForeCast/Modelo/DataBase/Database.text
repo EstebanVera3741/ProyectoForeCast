@@ -34,3 +34,23 @@ CREATE TABLE trabajador(
     numeroidentificacion INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     fechaingreso DATE NOT NULL
 );
+
+CREATE TABLE incrementomes(
+    nombremes VARCHAR (25) PRIMARY KEY NOT NULL
+);
+
+CREATE TABLE incrementotrabajador(
+    numeroidentificacion INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    cantidadtrabajador INT NOT NULL,
+    nombre_mes VARCHAR (25) NOT NULL,
+    FOREIGN KEY (nombre_mes) REFERENCES incrementomes(nombremes)
+);
+
+CREATE TABLE pronostico(
+    numeroidentificacion INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    cantidadpronostico INT NOT NULL,
+    nombre_mes VARCHAR (25) NOT NULL,
+    incremento_trabajador INT NOT NULL,
+    FOREIGN KEY (nombre_mes) REFERENCES incrementomes(nombremes),
+    FOREIGN KEY (incremento_trabajador) REFERENCES incrementotrabajador(numeroidentificacion)
+);

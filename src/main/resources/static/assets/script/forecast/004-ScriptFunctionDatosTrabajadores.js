@@ -1,7 +1,6 @@
 import {cantidadTrabajadores, cantidadPatrocinados, cantidadFaltante, cantidadParaPatrocinar}
     from "./004-ScriptFunctionValores.js";
-import {drawChart}
-    from "./004-ScriptFunctionCrearCanva.js";
+
 
 const formulario = document.getElementById('link_formulario_trabajador');
 
@@ -38,5 +37,4 @@ function ejecucionEvento(){
     cantidadPatrocinados();
     cantidadFaltante();
     cantidadParaPatrocinar();
-    drawChart();
 }
