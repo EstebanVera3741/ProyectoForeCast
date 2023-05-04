@@ -4,3 +4,11 @@ SELECT e.*
 FROM estudiante e
 INNER JOIN generacion g ON e.nombre_generacion = g.nombregeneracion
 WHERE g.nombregeneracion = 'GRAFITO';
+
+SELECT e
+FROM Estudiante e
+WHERE e.nombre_Generacion = :nombreGeneracion
+
+SELECT e
+FROM Trabajador e
+WHERE extract(MONTH FROM CAST(e.fechaIngreso AS date)) = :numeroMes

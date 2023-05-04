@@ -37,7 +37,7 @@ public class VisualizarTrabajador implements VisualizarTrabajadorService {
     @Override
     public List<Trabajador> cantidadTrabajadoresPorMes(int numeroMes) {
         TypedQuery<Trabajador> query = entityManager.createQuery(
-                "SELECT t FROM Trabajador t WHERE extract(MONTH FROM CAST(t.fechaIngreso AS date)) = :numeroMes",
+                "SELECT e FROM Trabajador e WHERE extract(MONTH FROM CAST(e.fechaIngreso AS date)) = :numeroMes",
                 Trabajador.class);
         query.setParameter("numeroMes", numeroMes);
         return query.getResultList();

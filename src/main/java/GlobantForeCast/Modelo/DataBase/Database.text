@@ -28,3 +28,9 @@ CREATE TABLE estudiante(
     FOREIGN KEY (nombre_generacion) REFERENCES generacion(nombregeneracion),
     FOREIGN KEY (nombre_institucion) REFERENCES institucion(nombreinstitucion)
 );
+
+CREATE TABLE trabajador(
+	nombrecompleto VARCHAR (50) NOT NULL,
+    numeroidentificacion INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    fechaingreso DATE NOT NULL
+);

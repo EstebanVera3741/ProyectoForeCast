@@ -1,5 +1,6 @@
 package GlobantForeCast.Controlador;
 
+import GlobantForeCast.Forecast.ForeCast;
 import GlobantForeCast.Modelo.Entity.Enlace.EnlaceTrabajador;
 import GlobantForeCast.Modelo.Entity.Estudiante;
 import GlobantForeCast.Modelo.Entity.Generacion;
@@ -26,6 +27,8 @@ public class ControladorTrabajadores extends HttpServlet {
     private VisualizarTrabajador visualizarTrabajador;
     @Autowired
     private ValidarMesDelAnio validarMesDelAnio;
+    @Autowired
+    private ForeCast foreCast;
 
     @PostMapping("/crearTrabajador")
     public ResponseEntity<?> crearTrabajador (@RequestBody EnlaceTrabajador enlaceTrabajador){
@@ -52,6 +55,9 @@ public class ControladorTrabajadores extends HttpServlet {
         int numeroMes = validarMesDelAnio.validarMesDelAnio(mes);
 
         List<Trabajador> listaTrabajadoresPorMes = visualizarTrabajador.cantidadTrabajadoresPorMes(numeroMes);
+
+        //validar forecast
+                    foreCast.agregarCantidadTrabajadores(listaTrabajadoresPorMes, mes);
 
         return ResponseEntity.ok(listaTrabajadoresPorMes.size());
     }
