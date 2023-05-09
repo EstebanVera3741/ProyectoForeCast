@@ -7,7 +7,7 @@ function generarForecast() {
     const ctx = canvas.getContext('2d');
 
 
-    cantidadFaltante(labels, ctx, canvas);
+    cantidad(labels, ctx, canvas);
 
 }
 
@@ -80,7 +80,7 @@ function graficarCanvas (labels, data, ctx, canvas){
     ctx.stroke();
 }
 
-async function cantidadFaltante(labels, ctx, canvas) {
+async function cantidad(labels, ctx, canvas) {
     const data = [];
     for (let i = 0; i < labels.length; i++) {
         const texto = labels[i];
