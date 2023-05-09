@@ -16,10 +16,10 @@ public class Pronostico {
 
     @OneToOne
     @JoinColumn(name = "nombre_mes")
-    private IncrementoMes nombre_mes;
+    private Mes nombre_mes;
     @OneToOne
-    @JoinColumn(name = "incremento_trabajador")
-    private IncrementoTrabajador incrementotrabajador;
+    @JoinColumn(name = "identificacion_trabajador")
+    private Demanda identificaciontrabajador;
 
     public Integer getNumeroidentificacion() {
         return numeroidentificacion;
@@ -37,19 +37,19 @@ public class Pronostico {
         this.cantidadpronostico = cantidadpronostico;
     }
 
-    public IncrementoMes getNombre_mes() {
+    public Mes getNombre_mes() {
         return nombre_mes;
     }
 
-    public void setNombre_mes(IncrementoMes nombre_mes) {
+    public void setNombre_mes(Mes nombre_mes) {
         this.nombre_mes = nombre_mes;
     }
 
-    public IncrementoTrabajador getIncrementotrabajador() {
-        return incrementotrabajador;
+    public Demanda getIdentificaciontrabajador() {
+        return identificaciontrabajador;
     }
 
-    public void setIncrementotrabajador(IncrementoTrabajador incrementotrabajador) {
-        this.incrementotrabajador = incrementotrabajador;
+    public void setIdentificaciontrabajador(Demanda incrementotrabajador) {
+        this.identificaciontrabajador = incrementotrabajador;
     }
 }

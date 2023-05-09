@@ -6,8 +6,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "incrementomes")
-public class IncrementoMes {
+@Table(name = "mes")
+public class Mes {
 
     @Id
     @Column(name = "nombremes", length = 25)

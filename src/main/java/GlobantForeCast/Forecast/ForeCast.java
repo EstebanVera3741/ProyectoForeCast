@@ -1,11 +1,12 @@
 package GlobantForeCast.Forecast;
 
-import GlobantForeCast.Forecast.CRUD.Crear.CrearIncrementoMes;
-import GlobantForeCast.Forecast.CRUD.Crear.CrearIncrementoTrabajador;
-import GlobantForeCast.Forecast.CRUD.Visualizar.VisualizarIncrementoTrabajador;
+import GlobantForeCast.Forecast.CRUD.Crear.CrearMes;
+import GlobantForeCast.Forecast.CRUD.Crear.CrearDemanda;
+import GlobantForeCast.Forecast.CRUD.Visualizar.VisualizarDemanda;
 import GlobantForeCast.Forecast.Interface.ForecastInterface;
-import GlobantForeCast.Modelo.Entity.Forecast.IncrementoMes;
-import GlobantForeCast.Modelo.Entity.Forecast.IncrementoTrabajador;
+import GlobantForeCast.Forecast.Ponderaciones.Ponderaciones;
+import GlobantForeCast.Modelo.Entity.Forecast.Mes;
+import GlobantForeCast.Modelo.Entity.Forecast.Demanda;
 import GlobantForeCast.Modelo.Entity.Trabajador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,11 +17,13 @@ import java.util.List;
 public class ForeCast implements ForecastInterface {
 
     @Autowired
-    private CrearIncrementoMes crearIncrementoMes;
+    private CrearMes crearIncrementoMes;
     @Autowired
-    private CrearIncrementoTrabajador crearIncrementoTrabajador;
+    private CrearDemanda crearIncrementoTrabajador;
     @Autowired
-    private VisualizarIncrementoTrabajador visualizarIncrementoTrabajador;
+    private VisualizarDemanda visualizarIncrementoTrabajador;
+    @Autowired
+    private Ponderaciones ponderaciones;
 
 
     @Override
@@ -28,26 +31,30 @@ public class ForeCast implements ForecastInterface {
 
         Integer numero = listaTrabajadoresPorMes.size();
 
-        IncrementoMes incrementoMesCreado = agregarMesEnElIncrementoDelMes(mes);
+        Mes mesCreado = agregarMesEnLaDemanda(mes);
 
-        IncrementoTrabajador incrementoTrabajadorCreado = new IncrementoTrabajador();
-        incrementoTrabajadorCreado.setCantidadtrabajador(numero);
-        incrementoTrabajadorCreado.setNombre_mes(incrementoMesCreado);
+        Demanda demandaCreado = new Demanda();
+        demandaCreado.setCantidadtrabajador(numero);
+        demandaCreado.setNombre_mes(mesCreado);
 
-        crearIncrementoTrabajador.crearIncrementoTrabajador(incrementoTrabajadorCreado);
+        crearIncrementoTrabajador.crearDemanda(demandaCreado);
 
-        incrementoTrabajadorCreado = visualizarIncrementoTrabajador.consultarIdIncrementoTrabajador(numero);
+        List<Demanda> listaDeIncremento = visualizarIncrementoTrabajador.consultarDemandaPorID(numero);
 
-        System.out.println("Incremento Trabajador: " + incrementoTrabajadorCreado.getNumeroidentificacion());
-        System.out.println("Incremento Trabajador: " + incrementoTrabajadorCreado.getCantidadtrabajador());
-        System.out.println("Incremento Trabajador: " + incrementoTrabajadorCreado.getNombre_mes());
+        //Realizar ponderaciones en este lugar
+
+        ponderaciones.realizarCalculoUltimosCuatroMeses();
+
+        //-----------------------------------------
+
+        System.out.println("Incremento Trabajador: " + listaDeIncremento.get(0).getCantidadtrabajador());
     }
 
     @Override
-    public IncrementoMes agregarMesEnElIncrementoDelMes(String mes) {
-        IncrementoMes incrementoMesCreado = new IncrementoMes();
-        incrementoMesCreado.setNombremes(mes);
-        crearIncrementoMes.crearIncrementoMes(incrementoMesCreado);
-        return incrementoMesCreado;
+    public Mes agregarMesEnLaDemanda(String mes) {
+        Mes mesCreado = new Mes();
+        mesCreado.setNombremes(mes);
+        crearIncrementoMes.crearMes(mesCreado);
+        return mesCreado;
     }
 }

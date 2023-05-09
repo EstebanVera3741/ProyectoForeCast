@@ -1,11 +1,10 @@
 package GlobantForeCast.Modelo.Entity.Forecast;
 
-import GlobantForeCast.Modelo.Entity.Ciudad;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "incrementotrabajador")
-public class IncrementoTrabajador {
+@Table(name = "demanda")
+public class Demanda {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,7 +14,7 @@ public class IncrementoTrabajador {
     private Integer cantidadtrabajador;
     @OneToOne
     @JoinColumn(name = "nombre_mes")
-    private IncrementoMes nombre_mes;
+    private Mes nombre_mes;
 
 
     public Integer getNumeroidentificacion() {
@@ -34,11 +33,11 @@ public class IncrementoTrabajador {
         this.cantidadtrabajador = cantidadtrabajador;
     }
 
-    public IncrementoMes getNombre_mes() {
+    public Mes getNombre_mes() {
         return nombre_mes;
     }
 
-    public void setNombre_mes(IncrementoMes nombre_mes) {
+    public void setNombre_mes(Mes nombre_mes) {
         this.nombre_mes = nombre_mes;
     }
 }
