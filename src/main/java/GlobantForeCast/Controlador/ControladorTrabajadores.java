@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -25,6 +26,8 @@ public class ControladorTrabajadores extends HttpServlet {
     private ValidarMesDelAnio validarMesDelAnio;
     @Autowired
     private ForeCast foreCast;
+    private List<String> listaMeses = new ArrayList<>();
+    private List<Integer> listaTrabajadoresXMes = new ArrayList<>();
 
     @PostMapping("/crearTrabajador")
     public ResponseEntity<?> crearTrabajador (@RequestBody EnlaceTrabajador enlaceTrabajador){
@@ -49,13 +52,26 @@ public class ControladorTrabajadores extends HttpServlet {
     public ResponseEntity<?> consultarTrabajadoresPorGeneracion (@PathVariable String mes){
 
         int numeroMes = validarMesDelAnio.validarMesDelAnio(mes);
-
         List<Trabajador> listaTrabajadoresPorMes = visualizarTrabajador.cantidadTrabajadoresPorMes(numeroMes);
 
-        //---------------------------------
-        //         validar forecast
-        //---------------------------------
-        foreCast.agregarCantidadTrabajadores(listaTrabajadoresPorMes, mes);
+        return ResponseEntity.ok(listaTrabajadoresPorMes.size());
+    }
+    @GetMapping("/consultarTrabajadoresPorForecast/{mes}")
+    public ResponseEntity<?> consultarTrabajadoresPorForecast (@PathVariable String mes){
+
+        int numeroMes = validarMesDelAnio.validarMesDelAnio(mes);
+        List<Trabajador> listaTrabajadoresPorMes = visualizarTrabajador.cantidadTrabajadoresPorMes(numeroMes);
+
+        listaMeses.add(mes);
+        listaTrabajadoresXMes.add(listaTrabajadoresPorMes.size());
+
+
+        if (listaMeses.size() == 7){
+
+            foreCast.agregarCantidadTrabajadores(listaTrabajadoresXMes, listaMeses);
+        }
+
+        System.out.println("Valor Tamaño Arreglo: " + listaMeses.size());
 
         return ResponseEntity.ok(listaTrabajadoresPorMes.size());
     }

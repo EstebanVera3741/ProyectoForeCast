@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ForecastInterface {
 
-    public void agregarCantidadTrabajadores (List<Trabajador> listaTrabajadoresPorMes, String mes);
+    public void agregarCantidadTrabajadores (List<Integer> listaTrabajadoresXMes, List<String> listaMeses);
     public Mes agregarMesEnLaDemanda(String mes);
 
 }

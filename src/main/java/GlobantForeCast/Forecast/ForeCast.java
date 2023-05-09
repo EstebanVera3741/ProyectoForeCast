@@ -7,7 +7,6 @@ import GlobantForeCast.Forecast.Interface.ForecastInterface;
 import GlobantForeCast.Forecast.Ponderaciones.Ponderaciones;
 import GlobantForeCast.Modelo.Entity.Forecast.Mes;
 import GlobantForeCast.Modelo.Entity.Forecast.Demanda;
-import GlobantForeCast.Modelo.Entity.Trabajador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,27 +26,19 @@ public class ForeCast implements ForecastInterface {
 
 
     @Override
-    public void agregarCantidadTrabajadores(List<Trabajador> listaTrabajadoresPorMes, String mes) {
+    public void agregarCantidadTrabajadores(List<Integer> listaTrabajadoresXMes, List<String> listaMeses) {
 
-        Integer numero = listaTrabajadoresPorMes.size();
+        for (int i = 0; i < listaTrabajadoresXMes.size(); i++){
 
-        Mes mesCreado = agregarMesEnLaDemanda(mes);
+            Demanda demandaCreado = new Demanda();
+            demandaCreado.setCantidadtrabajador(listaTrabajadoresXMes.get(i));
+            Mes mes = agregarMesEnLaDemanda(listaMeses.get(i));
+            demandaCreado.setNombre_mes(mes);
 
-        Demanda demandaCreado = new Demanda();
-        demandaCreado.setCantidadtrabajador(numero);
-        demandaCreado.setNombre_mes(mesCreado);
-
-        crearIncrementoTrabajador.crearDemanda(demandaCreado);
-
-        List<Demanda> listaDeIncremento = visualizarIncrementoTrabajador.consultarDemandaPorID(numero);
-
-        //Realizar ponderaciones en este lugar
+            crearIncrementoTrabajador.crearDemanda(demandaCreado);
+        }
 
         ponderaciones.realizarCalculoUltimosCuatroMeses();
-
-        //-----------------------------------------
-
-        System.out.println("Incremento Trabajador: " + listaDeIncremento.get(0).getCantidadtrabajador());
     }
 
     @Override

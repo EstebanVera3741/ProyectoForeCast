@@ -1,5 +1,7 @@
 package GlobantForeCast.Forecast.Ponderaciones;
 
+import GlobantForeCast.Forecast.CRUD.Crear.CrearDemanda;
+import GlobantForeCast.Forecast.CRUD.Crear.CrearPronostico;
 import GlobantForeCast.Forecast.CRUD.Visualizar.VisualizarDemanda;
 import GlobantForeCast.Forecast.Interface.PonderacionesInterface;
 import GlobantForeCast.Modelo.Entity.Forecast.Mes;
@@ -38,7 +40,10 @@ public class Ponderaciones implements PonderacionesInterface {
         listaDePonderaciones.add(0.4);
     }
     @Autowired
-    private VisualizarDemanda visualizarIncrementoTrabajador;
+    private VisualizarDemanda visualizarDemanda;
+    @Autowired
+    private CrearPronostico crearPronostico;
+
 
     @Override
     public void realizarCalculoUltimosCuatroMeses() {
@@ -51,11 +56,7 @@ public class Ponderaciones implements PonderacionesInterface {
                 Mes mes = new Mes();
                 mes.setNombremes(listaMeses.get(g));
 
-                List<Demanda> listaDemanda = visualizarIncrementoTrabajador.consultarDemandaPorMes(mes);
-                Integer valorDemanda = listaDemanda.get(0).getCantidadtrabajador();
-                System.out.println("Prueba 001: " + valorDemanda);
-
-                listaAux.add(valorDemanda);
+                List<Demanda> listaDemanda = visualizarDemanda.consultarDemandaPorMes(mes);
 
                 if(listaAux.size() == 4){
 
@@ -64,11 +65,18 @@ public class Ponderaciones implements PonderacionesInterface {
                     for(int j = 0; j < listaDePonderaciones.size(); j++ ){
 
                         Double total =  listaDePonderaciones.get(j) * listaAux.get(j);
-                        valorPromedio = total.intValue();
+                        valorPromedio += total.intValue();
                     }
                     Pronostico pronostico = new Pronostico();
-
+                    pronostico.setCantidadpronostico(valorPromedio);
+                    pronostico.setNombre_mes(mes);
+                    pronostico.setIdentificaciontrabajador(listaDemanda.get(0));
+                    crearPronostico.crearPronostico(pronostico);
+                    break;
                 }
+
+                listaAux.add(listaDemanda.get(0).getCantidadtrabajador());
+
             }
         }
     }

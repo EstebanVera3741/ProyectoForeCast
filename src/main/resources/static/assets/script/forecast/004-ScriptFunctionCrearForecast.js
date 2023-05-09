@@ -1,6 +1,6 @@
 
 
-function drawChart() {
+function generarForecast() {
     var labels = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'];
 
     const canvas = document.getElementById('myCanvas');
@@ -11,7 +11,7 @@ function drawChart() {
 
 }
 
-function graficar (labels, data, ctx, canvas){
+function graficarCanvas (labels, data, ctx, canvas){
 
     const chartWidth = 600;
     const chartHeight = 300;
@@ -84,15 +84,15 @@ async function cantidadFaltante(labels, ctx, canvas) {
     const data = [];
     for (let i = 0; i < labels.length; i++) {
         const texto = labels[i];
-        const urlEndpoint = "/consultarTrabajadoresPorGeneracion/" + texto;
+        const urlEndpoint = "/consultarTrabajadoresPorForecast/" + texto;
         const response = await fetch(urlEndpoint);
         const datos = await response.json();
-        console.log("Prueba de Ejecucion: " + texto);
+        console.log("Prueba Forecast: " + texto);
         console.log(datos);
         data[i] = datos;
     }
 
     console.log("Verificar meses: " + labels);
     console.log("Verificar valores: " + data);
-    graficar(labels, data, ctx, canvas);
+    graficarCanvas(labels, data, ctx, canvas);
 }
