@@ -64,6 +64,7 @@ public class ControladorTrabajadores extends HttpServlet {
         List<Trabajador> listaTrabajadoresPorMes = visualizarTrabajador.cantidadTrabajadoresPorMes(numeroMes);
 
         listaMeses.add(mes);
+
         listaTrabajadoresXMes.add(listaTrabajadoresPorMes.size());
 
 

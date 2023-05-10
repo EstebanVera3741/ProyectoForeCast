@@ -9,7 +9,7 @@ public class Demanda {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "numeroidentificacion")
-    private Integer numeroidentificacion;
+    private Long numeroidentificacion;
     @Column(name = "cantidadtrabajador")
     private Integer cantidadtrabajador;
     @OneToOne
@@ -17,11 +17,11 @@ public class Demanda {
     private Mes nombre_mes;
 
 
-    public Integer getNumeroidentificacion() {
+    public Long getNumeroidentificacion() {
         return numeroidentificacion;
     }
 
-    public void setNumeroidentificacion(Integer numeroidentificacion) {
+    public void setNumeroidentificacion(Long numeroidentificacion) {
         this.numeroidentificacion = numeroidentificacion;
     }
 
