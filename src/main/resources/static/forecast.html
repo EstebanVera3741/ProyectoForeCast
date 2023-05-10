@@ -54,8 +54,16 @@
                         las personas y empresas que buscan planificar su futuro y tomar decisiones informadas.</p>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                     <button type="button" class="btn btn-light btn-lg px-4 gap-3" onclick="drawChart()">Generar Forecast Laboral</button>
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="drawPintar()">Generar Forecast</button>
                     <button type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="generarForecast()">Generar Forecast Patrocinios</button>
                 </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container ">
+            <div class="d-flex align-items-center justify-content-center">
+                <canvas id="myCanvas" width="700" height="300"></canvas>
             </div>
         </div>
     </section>
@@ -110,13 +118,7 @@
             </div>
         </section>
     </main>
-    <section>
-        <div class="container ">
-            <div class="d-flex align-items-center justify-content-center">
-                <canvas id="myCanvas" width="700" height="300"></canvas>
-            </div>
-        </div>
-    </section>
+
     <footer class="container-fluid pt-5 pb-2 ">
         <div class="row">
             <div class="col-12 col-md">
@@ -164,6 +166,7 @@
     </footer>
 
 
+    <script src="assets/script/forecast/004-ScriptFunctionGenerarForecast.js"></script>
     <script src="assets/script/forecast/004-ScriptFunctionCrearForecast.js"></script>
     <script type="module" src="assets/script/forecast/004-ScriptFunctionDatosTrabajadores.js"></script>
     <script src="assets/script/001-ScriptFunctionConstantes.js"></script>

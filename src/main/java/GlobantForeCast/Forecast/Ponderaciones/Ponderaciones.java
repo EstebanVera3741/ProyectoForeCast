@@ -1,6 +1,5 @@
 package GlobantForeCast.Forecast.Ponderaciones;
 
-import GlobantForeCast.Forecast.CRUD.Crear.CrearDemanda;
 import GlobantForeCast.Forecast.CRUD.Crear.CrearPronostico;
 import GlobantForeCast.Forecast.CRUD.Visualizar.VisualizarDemanda;
 import GlobantForeCast.Forecast.Interface.PonderacionesInterface;
@@ -34,6 +33,7 @@ public class Ponderaciones implements PonderacionesInterface {
         listaDePonderaciones.add(0.3);
         listaDePonderaciones.add(0.4);
     }
+    private List<Pronostico> listaPronostico = new ArrayList<>();
     @Autowired
     private VisualizarDemanda visualizarDemanda;
     @Autowired
@@ -67,6 +67,7 @@ public class Ponderaciones implements PonderacionesInterface {
                     pronostico.setNombre_mes(mes);
                     pronostico.setIdentificaciontrabajador(listaDemanda.get(0));
                     crearPronostico.crearPronostico(pronostico);
+                    listaPronostico.add(pronostico);
                     break;
                 }
 
@@ -74,5 +75,16 @@ public class Ponderaciones implements PonderacionesInterface {
 
             }
         }
+
+        realizarDemasPronosticos();
+    }
+
+    public void realizarDemasPronosticos (){
+        for (Pronostico pronostico : listaPronostico){
+            Mes mes = pronostico.getNombre_mes();
+            Integer cantidadtrabajador = pronostico.getCantidadpronostico();
+            visualizarDemanda.actualizarFuturosMeses(mes, cantidadtrabajador);
+        }
+
     }
 }

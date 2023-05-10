@@ -56,6 +56,7 @@ public class ControladorTrabajadores extends HttpServlet {
 
         return ResponseEntity.ok(listaTrabajadoresPorMes.size());
     }
+
     @GetMapping("/consultarTrabajadoresPorForecast/{mes}")
     public ResponseEntity<?> consultarTrabajadoresPorForecast (@PathVariable String mes){
 
@@ -70,8 +71,6 @@ public class ControladorTrabajadores extends HttpServlet {
 
             foreCast.agregarCantidadTrabajadores(listaTrabajadoresXMes, listaMeses);
         }
-
-        System.out.println("Valor Tamaño Arreglo: " + listaMeses.size());
 
         return ResponseEntity.ok(listaTrabajadoresPorMes.size());
     }

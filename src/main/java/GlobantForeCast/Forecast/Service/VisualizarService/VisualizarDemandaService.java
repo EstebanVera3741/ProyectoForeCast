@@ -8,5 +8,6 @@ import java.util.List;
 public interface VisualizarDemandaService {
     public List<Demanda> consultarDemandaPorID(Integer cantidadTrabajadores);
     public List<Demanda> consultarDemandaPorMes(Mes mes);
+    public void actualizarFuturosMeses(Mes mes, Integer nuevaCantidad);
 
 }

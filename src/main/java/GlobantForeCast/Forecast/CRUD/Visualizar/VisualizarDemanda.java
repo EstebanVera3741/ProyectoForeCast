@@ -6,7 +6,9 @@ import GlobantForeCast.Modelo.Entity.Forecast.Mes;
 import GlobantForeCast.Modelo.Entity.Forecast.Demanda;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,5 +40,17 @@ public class VisualizarDemanda implements VisualizarDemandaService {
         query.setParameter("incrementoMes", mes);
 
         return query.getResultList();
+    }
+
+    @Override
+    @Transactional
+    public void actualizarFuturosMeses(Mes mes, Integer nuevaCantidad) {
+        Query query = entityManager.createQuery(
+                "UPDATE Demanda e SET e.cantidadtrabajador = :nuevacantidad WHERE e.nombre_mes = :nombremes"
+        );
+        query.setParameter("nombremes", mes);
+        query.setParameter("nuevacantidad", nuevaCantidad);
+
+        query.executeUpdate();
     }
 }
