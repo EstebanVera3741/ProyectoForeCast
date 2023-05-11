@@ -7,4 +7,5 @@ import java.util.List;
 public interface VisualizarPronosticoService {
 
     public List<Demanda> consultarPronosticoPorMes(int mes);
+    public List<Demanda> consultarDemandaPorMes(int numeroMes);
 }

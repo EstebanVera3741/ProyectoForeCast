@@ -1,7 +1,8 @@
 
 
 function generarForecast() {
-    var labels = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'];
+    var labels = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', "Agosto", "Septiembre",
+        "Octubre", "Noviembre", "Diciembre"];
 
     const canvas = document.getElementById('myCanvas');
     const ctx = canvas.getContext('2d');
@@ -13,7 +14,7 @@ function generarForecast() {
 
 function graficarCanvas (labels, data, ctx, canvas){
 
-    const chartWidth = 600;
+    const chartWidth = 800;
     const chartHeight = 300;
     const chartMargin = 40;
 

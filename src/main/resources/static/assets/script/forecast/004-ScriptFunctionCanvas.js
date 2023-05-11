@@ -1,19 +1,19 @@
 
-
-function drawChart() {
-    var labels = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'];
+function generarFore() {
+    var labels = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', "Agosto", "Septiembre",
+            "Octubre", "Noviembre", "Diciembre"];
 
     const canvas = document.getElementById('myCanvas');
     const ctx = canvas.getContext('2d');
 
 
-    cantidadFaltante(labels, ctx, canvas);
+    cantidadPatrocinio(labels, ctx, canvas);
 
 }
 
-function graficar (labels, data, ctx, canvas){
+function graficarCanv (labels, data, ctx, canvas){
 
-    const chartWidth = 600;
+    const chartWidth = 800;
     const chartHeight = 300;
     const chartMargin = 40;
 
@@ -76,23 +76,23 @@ function graficar (labels, data, ctx, canvas){
     }
 
     ctx.lineWidth = 2;
-    ctx.strokeStyle = '#0099ff';
+    ctx.strokeStyle = '#ff0013';
     ctx.stroke();
 }
 
-async function cantidadFaltante(labels, ctx, canvas) {
+async function cantidadPatrocinio(labels, ctx, canvas) {
     const data = [];
     for (let i = 0; i < labels.length; i++) {
         const texto = labels[i];
-        const urlEndpoint = "/consultarTrabajadoresPorGeneracion/" + texto;
+        const urlEndpoint = "/consultarPatrocinados/" + texto;
         const response = await fetch(urlEndpoint);
         const datos = await response.json();
-        console.log("Prueba de Ejecucion: " + texto);
+        console.log("Prueba F: " + texto);
         console.log(datos);
         data[i] = datos;
     }
 
     console.log("Verificar meses: " + labels);
     console.log("Verificar valores: " + data);
-    graficar(labels, data, ctx, canvas);
+    graficarCanv(labels, data, ctx, canvas);
 }

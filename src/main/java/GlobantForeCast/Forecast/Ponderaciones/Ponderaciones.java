@@ -25,6 +25,11 @@ public class Ponderaciones implements PonderacionesInterface {
         listaMeses.add("Mayo");
         listaMeses.add("Junio");
         listaMeses.add("Julio");
+        listaMeses.add("Agosto");
+        listaMeses.add("Septiembre");
+        listaMeses.add("Octubre");
+        listaMeses.add("Noviembre");
+        listaMeses.add("Diciembre");
     }
     private static final List<Double> listaDePonderaciones = new ArrayList<>();
     static {
@@ -60,6 +65,7 @@ public class Ponderaciones implements PonderacionesInterface {
                     for(int j = 0; j < listaDePonderaciones.size(); j++ ){
 
                         Double total =  listaDePonderaciones.get(j) * listaAux.get(j);
+                        total = total * 0.2 + total;
                         valorPromedio += total.intValue();
                     }
                     Pronostico pronostico = new Pronostico();

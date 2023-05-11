@@ -3,8 +3,6 @@ package GlobantForeCast.Forecast.CRUD.Visualizar;
 import GlobantForeCast.Forecast.Repositorio.PronosticoRepository;
 import GlobantForeCast.Forecast.Service.VisualizarService.VisualizarPronosticoService;
 import GlobantForeCast.Modelo.Entity.Forecast.Demanda;
-import GlobantForeCast.Modelo.Entity.Forecast.Mes;
-import GlobantForeCast.Modelo.Entity.Forecast.Pronostico;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
@@ -24,6 +22,15 @@ public class VisualizarPronostico implements VisualizarPronosticoService {
     public List<Demanda> consultarPronosticoPorMes(int numeroMes) {
         TypedQuery<Demanda> query = entityManager.createQuery(
                 "SELECT e.cantidadtrabajador FROM Demanda e WHERE e.numeroidentificacion = :numero",
+                Demanda.class);
+        query.setParameter("numero", numeroMes);
+
+        return query.getResultList();
+    }
+    @Override
+    public List<Demanda> consultarDemandaPorMes(int numeroMes) {
+        TypedQuery<Demanda> query = entityManager.createQuery(
+                "SELECT e FROM Demanda e WHERE e.numeroidentificacion = :numero",
                 Demanda.class);
         query.setParameter("numero", numeroMes);
 

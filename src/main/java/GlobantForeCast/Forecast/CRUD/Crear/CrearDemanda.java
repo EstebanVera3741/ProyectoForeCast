@@ -24,6 +24,9 @@ public class CrearDemanda implements CrearDemandaService {
             if (!demandasPorMes.isEmpty()) {
                 actualizarDemandaExistente(demandasPorMes.get(0), demanda);
             }
+            else{
+                demandaRepository.save(demanda);
+            }
         } catch (Exception e) {
             demandaRepository.save(demanda);
         }
