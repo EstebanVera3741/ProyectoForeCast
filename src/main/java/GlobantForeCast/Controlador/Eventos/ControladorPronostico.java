@@ -29,7 +29,10 @@ public class ControladorPronostico extends HttpServlet {
         int numeroMes = validarMesDelAnio.validarMesDelAnio(mes);
         List<Demanda> listaPronosticoPorMes = visualizarPronostico.consultarPronosticoPorMes(numeroMes);
 
-        return ResponseEntity.ok(listaPronosticoPorMes);
+
+        int valorEntero = listaPronosticoPorMes.get(0).getCantidadtrabajador();
+
+        return ResponseEntity.ok(valorEntero);
     }
 
 }

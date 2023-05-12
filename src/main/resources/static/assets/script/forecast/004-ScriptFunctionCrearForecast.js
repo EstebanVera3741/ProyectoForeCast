@@ -20,7 +20,7 @@ function generarForecast() {
 
 function graficarCanvas (labels, data, ctx, canvas){
 
-    const chart = new Chart(ctx, {
+    const char = new Chart(ctx, {
         type: "line",
         data: {
             labels: labels,
@@ -56,11 +56,11 @@ function graficarCanvas (labels, data, ctx, canvas){
     });
 
     canvas.onclick = function(e) {
-        const activePoints = chart.getElementsAtEventForMode(e, "nearest", { intersect: true }, true);
+        const activePoints = char.getElementsAtEventForMode(e, "nearest", { intersect: true }, true);
         if (activePoints.length > 0) {
             const firstPoint = activePoints[0];
-            const label = chart.data.labels[firstPoint.index];
-            const value = chart.data.datasets[firstPoint.datasetIndex].data[firstPoint.index];
+            const label = char.data.labels[firstPoint.index];
+            const value = char.data.datasets[firstPoint.datasetIndex].data[firstPoint.index];
             alert("Cantidad Trabajadores en el MES: " + label + " es: " + value);
         }
     }

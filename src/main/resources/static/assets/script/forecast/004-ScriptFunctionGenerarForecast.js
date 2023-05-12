@@ -6,6 +6,10 @@ function drawPintar() {
     const canvas = document.getElementById('myCanvas');
     const ctx = canvas.getContext('2d');
 
+    const existingChart = Chart.getChart(canvas);
+    if (existingChart) {
+        existingChart.destroy();
+    }
 
     cantidadFal(labels, ctx, canvas);
 
@@ -13,71 +17,50 @@ function drawPintar() {
 
 function graficarForecast (labels, data, ctx, canvas){
 
-    const chartWidth = 800;
-    const chartHeight = 300;
-    const chartMargin = 40;
+    const chart = new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: labels,
+            datasets: [{
+                label: "Forecast",
+                data: data,
+                borderColor: "#000000",
+                pointBackgroundColor: "#ff00f2",
+                pointHoverBackgroundColor: "#eeff00",
+                pointRadius: 5,
+                pointHoverRadius: 7,
+                fill: false,
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                    }
+                }]
+            },
+            tooltips: {
+                mode: "nearest",
+                intersect: false,
+                callbacks: {
+                    label: function(tooltipItem) {
+                        return "Value: " + tooltipItem.yLabel;
+                    }
+                }
+            }
+        }
+    });
 
-    // Establecer la escala del eje y
-    const maxValue = Math.max(...data);
-    const yScale = (chartHeight - chartMargin * 2) / maxValue;
-
-    // Dibujar el fondo del gráfico
-    ctx.fillStyle = '#f7f7f7';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    // Dibujar el eje y
-    ctx.beginPath();
-    ctx.moveTo(chartMargin, chartMargin);
-    ctx.lineTo(chartMargin, chartHeight - chartMargin);
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = '#666';
-    ctx.stroke();
-
-    // Dibujar el eje x
-    ctx.beginPath();
-    ctx.moveTo(chartMargin, chartHeight - chartMargin);
-    ctx.lineTo(chartMargin + chartWidth, chartHeight - chartMargin);
-    ctx.stroke();
-
-    // Dibujar las marcas del eje y y las etiquetas
-    ctx.font = '14px Arial';
-    ctx.textAlign = 'right';
-    ctx.fillStyle = '#666';
-    for (let i = 0; i <= 5; i++) {
-        const value = maxValue / 5 * i;
-        const y = chartHeight - chartMargin - value * yScale;
-        ctx.beginPath();
-        ctx.moveTo(chartMargin - 5, y);
-        ctx.lineTo(chartMargin, y);
-        ctx.stroke();
-        ctx.fillText(value.toString(), chartMargin - 10, y + 5);
+    canvas.onclick = function(e) {
+        const activePoints = chart.getElementsAtEventForMode(e, "nearest", { intersect: true }, true);
+        if (activePoints.length > 0) {
+            const firstPoint = activePoints[0];
+            const label = chart.data.labels[firstPoint.index];
+            const value = chart.data.datasets[firstPoint.datasetIndex].data[firstPoint.index];
+            alert("Cantidad Trabajadores en el MES: " + label + " es: " + value);
+        }
     }
-
-    // Dibujar las marcas del eje x y las etiquetas
-    const labelSpacing = chartWidth / (data.length - 1);
-    ctx.textAlign = 'center';
-    for (let i = 0; i < data.length; i++) {
-        const x = chartMargin + labelSpacing * i;
-        ctx.beginPath();
-        ctx.moveTo(x, chartHeight - chartMargin);
-        ctx.lineTo(x, chartHeight - chartMargin + 5);
-        ctx.stroke();
-        ctx.fillText(labels[i], x, chartHeight - chartMargin + 20);
-    }
-
-    // Dibujar la línea de la gráfica
-    ctx.beginPath();
-    ctx.moveTo(chartMargin, chartHeight - chartMargin - data[0] * yScale);
-
-    for (let i = 1; i < data.length; i++) {
-        const x = chartMargin + labelSpacing * i;
-        const y = chartHeight - chartMargin - data[i] * yScale;
-        ctx.lineTo(x, y);
-    }
-
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = '#ff00f2';
-    ctx.stroke();
 }
 
 async function cantidadFal(labels, ctx, canvas) {

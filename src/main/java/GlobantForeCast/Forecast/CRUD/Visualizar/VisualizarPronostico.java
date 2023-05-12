@@ -21,7 +21,7 @@ public class VisualizarPronostico implements VisualizarPronosticoService {
     @Override
     public List<Demanda> consultarPronosticoPorMes(int numeroMes) {
         TypedQuery<Demanda> query = entityManager.createQuery(
-                "SELECT e.cantidadtrabajador FROM Demanda e WHERE e.numeroidentificacion = :numero",
+                "SELECT e FROM Demanda e WHERE e.numeroidentificacion = :numero",
                 Demanda.class);
         query.setParameter("numero", numeroMes);
 
