@@ -1,31 +1,43 @@
 :root{
     --color-principal: #d2d2d2;
     --color-hover: #bfd732;
-    --color-border: #c0fa05;
+    --color-border: #a2d200;
     --color-black: #000000;
 }
-
 
 h5 {
     color: #ffffff;
 }
 
+.btn_control_hover{
+    border: 1px solid var(--color-black);
+}
+
 .btn_control_hover:hover {
     background: var(--color-hover);
     color: var(--color-black);
-    border: var(--color-border);
+    border: 1px solid var(--color-border);
+}
+
+.btn_control_hover:active {
+    background: var(--color-border) !important;
+    border: 1px solid var(--color-border) !important;
+    color: var(--color-black) !important;
 }
 
 .color_nav_etiqueta_a {
     color: var(--color-principal)
 }
+
 .color_nav_etiqueta_a:hover {
     color: var(--color-hover)
 }
+
 .color_etiqueta_a  {
     text-decoration: none;
     color: var(--color-principal)
 }
+
 .color_etiqueta_a:hover {
     color: var(--color-hover)
 }
