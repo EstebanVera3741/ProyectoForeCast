@@ -1,0 +1,31 @@
+:root{
+    --color-principal: #d2d2d2;
+    --color-hover: #bfd732;
+    --color-border: #c0fa05;
+    --color-black: #000000;
+}
+
+
+h5 {
+    color: #ffffff;
+}
+
+.btn_control_hover:hover {
+    background: var(--color-hover);
+    color: var(--color-black);
+    border: var(--color-border);
+}
+
+.color_nav_etiqueta_a {
+    color: var(--color-principal)
+}
+.color_nav_etiqueta_a:hover {
+    color: var(--color-hover)
+}
+.color_etiqueta_a  {
+    text-decoration: none;
+    color: var(--color-principal)
+}
+.color_etiqueta_a:hover {
+    color: var(--color-hover)
+}
