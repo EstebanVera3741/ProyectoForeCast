@@ -42,20 +42,50 @@
         </div>
     </nav>
 
-    <main>
-        <section class="pt-5" id="link_generacion_section">
-            <div class="container marketing">
-                <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-                    <h1 class="display-4 fw-normal"> Generaciones </h1>
-                </div>
-                <div class="row text-center" id="script_crear_generacion">
-                </div>
-                <hr class="featurette-divider">
+    <section class="pt-5" id="link_generacion_section">
+        <div class="container marketing">
+            <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+                <h1 class="display-4 fw-normal"> Generaciones </h1>
             </div>
-        </section>
-        <section class="container" id="section_crear_tabla">
-        </section>
-    </main>
+            <div class="row text-center" id="script_crear_generacion">
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row g-5 py-5">
+                <div class="col-md-12 col-lg-12 card">
+                    <form id="link_formulario_generacion" >
+                        <div class=" pt-5 row g-3">
+                            <div class="col-4">
+                                <label for="input_generacion" class="form-label">Nombre Generación</label>
+                                <input type="text" class="form-control rounded-pill" id="input_generacion" aria-label="Nombre"
+                                       placeholder="Generación Globant" >
+                            </div>
+                            <div class="col-4">
+                                <label for="input_fecha_il" class="mb-3">Inicio Lectiva</label>
+                                <span class="lnr lnr-calendar-full"></span>
+                                <input type="date" class="form-control rounded-pill" id="input_fecha_il"  >
+                            </div>
+                            <div class="col-4">
+                                <label for="input_fecha_fp" class="mb-3">Fin Productiva</label>
+                                <span class="lnr lnr-calendar-full"></span>
+                                <input type="date" class="form-control rounded-pill" id="input_fecha_fp" >
+                            </div>
+                            <div class="pb-3 d-flex justify-content-center align-items-center">
+                                <button type="submit" class=" btn btn-outline-secondary rounded-pill btn_control_hover">Ingresar Generacion</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="featurette-divider">
+        </div>
+    </section>
+
+    <section class="container" id="section_crear_tabla">
+    </section>
 
     <footer class="container-fluid pt-4 pb-1" style="background: black" >
         <div class="row">
@@ -115,6 +145,7 @@
         </div>
     </footer>
 
+    <script src="assets/script/generacion/002-ScriptFunctionIngresarFormulario.js"></script>
     <script src="assets/script/generacion/002-ScriptFunctionCrearTable.js"></script>
     <script src="assets/script/generacion/002-ScriptFunctionCrearGeneraciones.js"></script>
     <script src="assets/script/001-ScriptFunctionConstantes.js"></script>

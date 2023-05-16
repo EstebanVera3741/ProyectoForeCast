@@ -41,3 +41,10 @@ h5 {
 .color_etiqueta_a:hover {
     color: var(--color-hover)
 }
+
+#imagen_efecto_cover {
+    background-image: url("../imagen/007-GlobantWelcomeGlober.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 6px;
+}

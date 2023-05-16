@@ -26,7 +26,7 @@
                         <a class="nav-link color_nav_etiqueta_a" id="link_forecast" href="forecast.html"></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link color_nav_etiqueta_a" id="link_globers" href="#"></a>
+                        <a class="nav-link color_nav_etiqueta_a" id="link_globers" href="glober.html"></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link color_nav_etiqueta_a" id="link_generacion" href="generacion.html"></a>
@@ -42,74 +42,71 @@
         </div>
     </nav>
 
-    <main>
-        <section class="py-5">
-            <div class="container">
-                <div class="pt-5 row g-5">
-                    <div class="col-md-6 col-lg-6 order-md-last">
-                        <img src="assets/imagen/007-GlobantWelcomeGlober.jpg" width="100%" alt="">
-                    </div>
-                    <div class="col-md-6 col-lg-6 card">
-                        <h4 class="pt-4 mb-3 text-center">Bienvenido Glober</h4>
-                        <form id="link_formulario_envar_datos" >
-                            <div class="row g-3">
-                                <div class="col-sm-12">
-                                    <label for="input_nombre_completo" class="form-label">Nombre Completo</label>
-                                    <input type="text" class="form-control rounded-pill"  id="input_nombre_completo" >
-                                </div>
-                                <div class="col-6">
-                                    <label for="input_identificacion" class="form-label">Identificación</label>
-                                    <input type="number" class="form-control rounded-pill" id="input_identificacion" >
-                                </div>
-                                <div class="col-6">
-                                    <label for="input_generacion" class="form-label">Generación</label>
-                                    <input type="text" class="form-control rounded-pill" id="input_generacion" aria-label="Nombre"
-                                           placeholder="Generación Globant" >
-                                </div>
-                                <div class="col-12">
-                                    <label for="input_correo" class="form-label">Correo Electronico</label>
-                                    <input type="email" class="form-control rounded-pill" id="input_correo"
-                                         placeholder="Ingrese Correo electronico example@gmail.com" >
-                                </div>
-                                <div class="col-6">
-                                    <label for="input_education" class="form-label">Instituto</label>
-                                    <select id="input_education" class="form-select rounded-pill" >
-                                        <option selected>Sena</option>
-                                        <option>Universidad</option>
-                                    </select>
-                                </div>
-                                <div class="col-6">
-                                    <label for="input_ciudad" class="form-label">Ciudad</label>
-                                    <input type="text" class="form-control rounded-pill" id="input_ciudad" >
-                                </div>
-                                <div class="col-6">
-                                    <label for="input_fecha_il" class="mb-3">Inicio Lectiva</label>
-                                    <span class="lnr lnr-calendar-full"></span>
-                                    <input type="date" class="form-control rounded-pill" id="input_fecha_il"  >
-                                </div>
-                                <div class="col-6">
-                                    <label for="input_fecha_fp" class="mb-3">Fin Productiva</label>
-                                    <span class="lnr lnr-calendar-full"></span>
-                                    <input type="date" class="form-control rounded-pill" id="input_fecha_fp" >
-                                </div>
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input text-black" id="same-address">
-                                    <label class="form-check-label text-black" for="same-address">Accepta el tratamiento de datos personales</label>
-                                </div>
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input text-black" id="save-info">
-                                    <label class="form-check-label text-black" for="save-info">Notificacione en el correo electronico</label>
-                                </div>
-                                <div class="pb-3 d-flex justify-content-center align-items-center">
-                                    <button type="submit" class=" btn btn-outline-secondary rounded-pill btn_control_hover">Ingresar Glober</button>
-                                </div>
+    <section class="py-5">
+        <div class="container">
+            <div class="pt-5 row g-5">
+                <div class="col-md-6 col-lg-6 order-md-last" id="imagen_efecto_cover">
+                </div>
+                <div class="col-md-6 col-lg-6 card">
+                    <h4 class="pt-4 mb-3 text-center">Bienvenido Glober</h4>
+                    <form id="link_formulario_envar_datos" >
+                        <div class="row g-3">
+                            <div class="col-sm-12">
+                                <label for="input_nombre_completo" class="form-label">Nombre Completo</label>
+                                <input type="text" class="form-control rounded-pill"  id="input_nombre_completo" >
                             </div>
-                        </form>
-                    </div>
+                            <div class="col-6">
+                                <label for="input_identificacion" class="form-label">Identificación</label>
+                                <input type="number" class="form-control rounded-pill" id="input_identificacion" >
+                            </div>
+                            <div class="col-6">
+                                <label for="input_generacion" class="form-label">Generación</label>
+                                <input type="text" class="form-control rounded-pill" id="input_generacion" aria-label="Nombre"
+                                       placeholder="Generación Globant" >
+                            </div>
+                            <div class="col-12">
+                                <label for="input_correo" class="form-label">Correo Electronico</label>
+                                <input type="email" class="form-control rounded-pill" id="input_correo"
+                                     placeholder="Ingrese Correo electronico example@gmail.com" >
+                            </div>
+                            <div class="col-6">
+                                <label for="input_education" class="form-label">Instituto</label>
+                                <select id="input_education" class="form-select rounded-pill" >
+                                    <option selected>Sena</option>
+                                    <option>Universidad</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <label for="input_ciudad" class="form-label">Ciudad</label>
+                                <input type="text" class="form-control rounded-pill" id="input_ciudad" >
+                            </div>
+                            <div class="col-6">
+                                <label for="input_fecha_il" class="mb-3">Inicio Lectiva</label>
+                                <span class="lnr lnr-calendar-full"></span>
+                                <input type="date" class="form-control rounded-pill" id="input_fecha_il"  >
+                            </div>
+                            <div class="col-6">
+                                <label for="input_fecha_fp" class="mb-3">Fin Productiva</label>
+                                <span class="lnr lnr-calendar-full"></span>
+                                <input type="date" class="form-control rounded-pill" id="input_fecha_fp" >
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input text-black" id="same-address">
+                                <label class="form-check-label text-black" for="same-address">Accepta el tratamiento de datos personales</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input text-black" id="save-info">
+                                <label class="form-check-label text-black" for="save-info">Notificacione en el correo electronico</label>
+                            </div>
+                            <div class="pb-3 d-flex justify-content-center align-items-center">
+                                <button type="submit" class=" btn btn-outline-secondary rounded-pill btn_control_hover">Ingresar Glober</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <footer class="container-fluid pt-4 pb-1" style="background: black" >
         <div class="row">
