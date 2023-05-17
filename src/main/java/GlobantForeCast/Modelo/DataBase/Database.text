@@ -7,7 +7,7 @@ CREATE TABLE ciudad (
 
 CREATE TABLE generacion (
 	nombregeneracion VARCHAR (25) NOT NULL PRIMARY KEY,
-    nombre_ciudad VARCHAR (25) NOT NULL,
+    nombre_ciudad VARCHAR (25),
     fechail DATE NOT NULL,
     fechafp DATE NOT NULL,
     FOREIGN KEY (nombre_ciudad) REFERENCES ciudad(nombreciudad)

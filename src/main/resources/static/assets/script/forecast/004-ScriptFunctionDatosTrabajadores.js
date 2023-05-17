@@ -1,6 +1,3 @@
-import {cantidadTrabajadores, cantidadPatrocinados, cantidadFaltante, cantidadParaPatrocinar}
-    from "./004-ScriptFunctionValores.js";
-
 
 const formulario = document.getElementById('link_formulario_trabajador');
 
@@ -31,10 +28,11 @@ function ejecucionEvento(){
     catch (error) {
         console.error(error);
     }
+
     formulario.reset();
 
-    cantidadTrabajadores();
-    cantidadPatrocinados();
-    cantidadFaltante();
-    cantidadParaPatrocinar();
+    setTimeout(function() {
+        location.reload();
+    }, 500);
+
 }

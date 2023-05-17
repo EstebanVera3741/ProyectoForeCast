@@ -59,36 +59,55 @@
         </div>
     </section>
 
-    <!--<section>
+    <section>
         <div class="container">
-            <div class="row g-5">
-                <div class="col p-5">
-                    <div class="row ">
-                        <div class="col-3 ">
-                            <h4 class="fw-semibold mb-0 text-center">Total Trabajadores</h4>
-                            <p class="text-body-secondary text-center" id="cantidad_trabajadore"></p>
+            <div class="row g-5 pb-2 pt-4">
+                <div class="col-md-5 col-lg-5 card">
+                    <form id="link_formulario_trabajador" >
+                        <div class=" pt-5 row g-3">
+                            <div class="col-sm-6">
+                                <label for="input_numero_trabajadores" class=" mb-3 form-label">Trabajadores Contratados</label>
+                                <input type="number" class="form-control rounded-pill"  id="input_numero_trabajadores" >
+                            </div>
+                            <div class="col-6">
+                                <label for="input_fecha_contratacion" class="mb-3">Fecha de Contratacion</label>
+                                <span class="lnr lnr-calendar-full"></span>
+                                <input type="date" class="form-control rounded-pill" id="input_fecha_contratacion" >
+                            </div>
+                            <div class="pb-3 d-flex justify-content-center align-items-center">
+                                <button type="submit" class=" btn btn-outline-secondary rounded-pill">Ingresar Trabajadores</button>
+                            </div>
                         </div>
+                    </form>
+                </div>
+                <div class="col-md-7 col-lg-7 card">
+                    <div class="col p-3">
+                        <div class="row row-cols-1 row-cols-sm-2 g-4">
+                            <div class="col d-flex flex-column gap-2" id="contenedor_padre-1">
+                                <h4 class="fw-semibold mb-0 text-center">Total Trabajadores</h4>
+                                <p class="text-body-secondary text-center" id="cantidad_trabajadores"></p>
+                            </div>
 
-                        <div class="col-3 ">
-                            <h4 class="fw-semibold mb-0 text-center">Cantidad Patrocinados</h4>
-                            <p class="text-body-secondary text-center" id="cantidad_estudiante"></p>
-                        </div>
+                            <div class="col d-flex flex-column gap-2">
+                                <h4 class="fw-semibold mb-0 text-center">Cantidad Patrocinados</h4>
+                                <p class="text-body-secondary text-center" id="cantidad_estudiantes"></p>
+                            </div>
 
-                        <div class="col-3 ">
-                            <h4 class="fw-semibold mb-0 text-center">Total Cuota</h4>
-                            <p class="text-body-secondary text-center" id="cantidad_para_patrocina"></p>
-                        </div>
+                            <div class="col d-flex flex-column gap-2">
+                                <h4 class="fw-semibold mb-0 text-center">Total Cuota</h4>
+                                <p class="text-body-secondary text-center" id="cantidad_para_patrocinar"></p>
+                            </div>
 
-                        <div class="col-3 ">
-                            <h4 class="fw-semibold mb-0 text-center">Falta Cuota</h4>
-                            <p class="text-body-secondary text-center" id="cantidad_faltant"></p>
+                            <div class="col d-flex flex-column gap-2">
+                                <h4 class="fw-semibold mb-0 text-center">Falta Cuota</h4>
+                                <p class="text-body-secondary text-center" id="cantidad_faltante"></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>-->
-
+    </section>
 
     <section>
         <div class="container py-5">
@@ -98,57 +117,6 @@
         </div>
     </section>
 
-    <main>
-        <section>
-            <div class="container">
-                <div class="row g-5 py-5">
-                    <div class="col-md-5 col-lg-5 card">
-                        <form id="link_formulario_trabajador" >
-                            <div class=" pt-5 row g-3">
-                                <div class="col-sm-6">
-                                    <label for="input_numero_trabajadores" class=" mb-3 form-label">Trabajadores Contratados</label>
-                                    <input type="number" class="form-control rounded-pill"  id="input_numero_trabajadores" >
-                                </div>
-                                <div class="col-6">
-                                    <label for="input_fecha_contratacion" class="mb-3">Fecha de Contratacion</label>
-                                    <span class="lnr lnr-calendar-full"></span>
-                                    <input type="date" class="form-control rounded-pill" id="input_fecha_contratacion" >
-                                </div>
-                                <div class="pb-3 d-flex justify-content-center align-items-center">
-                                    <button type="submit" class=" btn btn-outline-secondary rounded-pill">Ingresar Trabajadores</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-md-7 col-lg-7 card">
-                        <div class="col p-3">
-                            <div class="row row-cols-1 row-cols-sm-2 g-4">
-                                <div class="col d-flex flex-column gap-2" id="contenedor_padre-1">
-                                    <h4 class="fw-semibold mb-0 text-center">Total Trabajadores</h4>
-                                    <p class="text-body-secondary text-center" id="cantidad_trabajadores"></p>
-                                </div>
-
-                                <div class="col d-flex flex-column gap-2">
-                                    <h4 class="fw-semibold mb-0 text-center">Cantidad Patrocinados</h4>
-                                    <p class="text-body-secondary text-center" id="cantidad_estudiantes"></p>
-                                </div>
-
-                                <div class="col d-flex flex-column gap-2">
-                                    <h4 class="fw-semibold mb-0 text-center">Total Cuota</h4>
-                                    <p class="text-body-secondary text-center" id="cantidad_para_patrocinar"></p>
-                                </div>
-
-                                <div class="col d-flex flex-column gap-2">
-                                    <h4 class="fw-semibold mb-0 text-center">Falta Cuota</h4>
-                                    <p class="text-body-secondary text-center" id="cantidad_faltante"></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
 
     <footer class="container-fluid pt-4 pb-1" style="background: black" >
         <div class="row">
@@ -210,6 +178,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/script/forecast/004-ScriptFunctionValoresGrafica.js"></script>
     <script type="module" src="assets/script/forecast/004-ScriptFunctionGenerarGrafica.js"></script>
     <script type="module" src="assets/script/forecast/004-ScriptFunctionCrearForecast.js"></script>
     <script type="module" src="assets/script/forecast/004-ScriptFunctionDatosTrabajadores.js"></script>
