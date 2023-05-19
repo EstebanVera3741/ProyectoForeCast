@@ -1,5 +1,4 @@
-export function graficarCanvas (labels, data, ctx, canvas, colorLinea, colorPuntos, colorHover){
-
+export function graficarCanvas(labels, data, ctx, canvas, colorLinea, colorPuntos, colorHover) {
     const char = new Chart(ctx, {
         type: "line",
         data: {
@@ -41,7 +40,16 @@ export function graficarCanvas (labels, data, ctx, canvas, colorLinea, colorPunt
             const firstPoint = activePoints[0];
             const label = char.data.labels[firstPoint.index];
             const value = char.data.datasets[firstPoint.datasetIndex].data[firstPoint.index];
-            alert("Mes: " + label + " Cantidad: " + value);
+            showModal(label, value);
         }
     }
+}
+
+function showModal(label, value) {
+    const exampleModal = new bootstrap.Modal(document.getElementById('exampleModal')); // Reemplaza 'exampleModal' con el ID correcto de tu modal
+    var nuevoTitulo = document.getElementById("exampleModalLabel");
+    nuevoTitulo.innerText = label;
+    var nuevoValor = document.getElementById("valor_mes");
+    nuevoValor.innerText = value;
+    exampleModal.show();
 }
